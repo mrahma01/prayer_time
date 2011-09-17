@@ -12,6 +12,7 @@
 	class Timetable {
 		
 		protected $timeyable_id;
+        public static $month;
 		
 		protected $table_name = 'timetable';
 		/**
@@ -115,6 +116,7 @@
 		 * @param int $month
 		 */
 		public static function getMonthlyCalendar($month, $year = false){
+            self::$month = $month;
 			if($year === false){
 				$year = date("Y");
 			}
@@ -134,18 +136,22 @@
 					WHERE	d_date = CURDATE() LIMIT 1";
 			return db_query_return_as_array($sql);			
 		}	
-
+		/**
+		 * 
+		 * Enter description here ...
+		 * @param $rows
+		 */
 		public static function getTimetableAsString($rows){
 			$str = "No data found for your selected month.";
 			# there is at least one rows
 			if($rows !== false){
                 $i = 1;
-				$str = "<table class='full' ><tr><td></td><td colspan='3'>Fajr</td><td colspan='2'>Zuhr</td><td colspan='3'>Asr</td><td colspan='2'>Maghrib</td><td colspan='2'>Isha</td></tr><tr>";
-				$str .= "<td>Day</td><td>Begins</td><td>Jamah</td><td>Sunrise</td><td>Begins</td><td>Jamah</td><td>Mithl1</td><td>Mithl2</td>
-						<td>Jamah</td><td>Begins</td><td>Jamah</td><td>Begins</td><td>Jamah</td>";
+				$str = "<table class='full' ><tr><th style='border:none;'></th><th colspan='3'>Fajr</th><th colspan='2'>Zuhr</th><th colspan='3'>Asr</th><th colspan='2'>Maghrib</th><th colspan='2'>Isha</th></tr><tr>";
+				$str .= "<td>Day</td><td>Begins</td><td class='jamah'>Jamah</td><td>Sunrise</td><td>Begins</td><td class='jamah'>Jamah</td><td>Mithl1</td><td>Mithl2</td>
+						<td class='jamah'>Jamah</td><td>Begins</td><td class='jamah'>Jamah</td><td>Begins</td><td class='jamah'>Jamah</td>";
 				$str .= "</tr>";
 				foreach($rows as $row){
-					$str .= "<tr ".self::getClass($i).">";
+					$str .= "<tr ".self::getClass(self::$month, $i).">";
 					
 					$str .= "<td>$i</td>";
 					$str .= "<td>".self::formatHourAndMinuteOnly($row["fajr_begins"])."</td>";
@@ -167,6 +173,27 @@
 			}		
 			return $str;	
 		}
+		
+		/**
+		 * 
+		 * Enter description here ...
+		 * @param 	array $row
+		 * @return 	str
+		 */
+		public static function getCalendarTodayAsString($row){
+			$str = "";
+			$str = "<table class='full timetable' >";
+			$str .= "<tr><th style='border:none;'></th><th>Begins</th><th>Jammah</th></tr>";
+			$str .= "<tr><td>Fajr</td><td>".self::formatHourAndMinuteOnly($row["fajr_begins"])."</td><td>".self::formatHourAndMinuteOnly($row["fajr_jamah"])."</td></tr>";
+			$str .= "<tr><td>sunrise</td><td colspan='2'>".self::formatHourAndMinuteOnly($row["sunrise"])."</td></tr>";
+			$str .= "<tr><td>Zuhar</td><td>".self::formatHourAndMinuteOnly($row["zuhr_begins"])."</td><td>".self::formatHourAndMinuteOnly($row["zuhr_jamah"])."</td></tr>";
+			$str .= "<tr><td>Asr</td><td>".self::formatHourAndMinuteOnly($row["asr_mithl_2"])."</td><td>".self::formatHourAndMinuteOnly($row["asr_jamah"])."</td></tr>";
+			$str .= "<tr><td>Magrib</td><td>".self::formatHourAndMinuteOnly($row["maghrib_begins"])."</td><td>".self::formatHourAndMinuteOnly($row["maghrib_jamah"])."</td></tr>";
+			$str .= "<tr><td>Isha</td><td>".self::formatHourAndMinuteOnly($row["isha_begins"])."</td><td>".self::formatHourAndMinuteOnly($row["isha_jamah"])."</td></tr>";
+			
+			return $str;
+                			
+		}
 		/**
 		 * 
 		 * Enter description here ...
@@ -178,10 +205,10 @@
         /*
         * static function to return a css class to highlight the current date
         */
-        public static function getClass($day){
-            $today = getdate();
-            if ($day === $today['mday'])
+        public static function getClass($month, $day){
+            if ($day == date('j') && $month == date('m')){
                 return "class = today";
+            }
         }
 	}
 ?>

@@ -1,34 +1,3 @@
-<html>
- <head>
-     <style>
-    table.full{
-        width: 100%;
-        border-collapse: separate;
-    }
-    table.full tr:nth-child(even) {background: #ebe6da}    
-    table.full tr td{
-        text-align: center;
-        padding: 5px;
-        border: 1px solid #ccc;
-    }
-    table.full tr td.jamah{
-        background-color: #e1eafe;
-    }
-    table.full tr:hover {
-        background-color: #e1eafe;
-    }
-    table.full tr.today{ 
-        padding:2;
-        font-weight: bold;
-        background-color: #e1eafe; 
-        border-collapse:collapse;
-    }
-    table.full tr.today td{ 
-        border: 1px solid orange;
-    }
-    </style>
-</head>
- <body>
 <?php
 	include("config.inc.php");
 	include("top.inc.php");

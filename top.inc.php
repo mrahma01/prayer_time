@@ -11,7 +11,7 @@
   <script type="text/javascript" src="eict.js" ></script> 
 
 </head>
-<body id="page1" onLoad="myclock();"> 
+<body id="page1" > 
 <div id="main"> 
   
 	<!-- content --> 

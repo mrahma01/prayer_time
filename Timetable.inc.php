@@ -46,7 +46,7 @@
 		
 		/**
 		 * 
-		 * Insert rows(data specified in the $this->fields) arrauy 
+		 * Insert rows(data specified in the $this->fields) array 
 		 */
 		public function insert(){
 			$sql = "INSERT INTO {$this->table_name} (";
@@ -139,30 +139,49 @@
 			$str = "No data found for your selected month.";
 			# there is at least one rows
 			if($rows !== false){
-				$str = "<table style='width:800px;'><tr>";
-				$str .= "<td>Fajr begins</td><td>Fajr jamah</td><td>sunrise</td><td>Zuhr begins</td><td>Zuhr jamah</td><td>Asr mithl2</td>
-						<td>Asr jamah</td><td>Maghrib begins</td><td>Maghrib jamah</td><td>Isha begins</td><td>Isha jamah</td>";
+                $i = 1;
+				$str = "<table class='full' ><tr><td></td><td colspan='3'>Fajr</td><td colspan='2'>Zuhr</td><td colspan='3'>Asr</td><td colspan='2'>Maghrib</td><td colspan='2'>Isha</td></tr><tr>";
+				$str .= "<td>Day</td><td>Begins</td><td>Jamah</td><td>Sunrise</td><td>Begins</td><td>Jamah</td><td>Mithl1</td><td>Mithl2</td>
+						<td>Jamah</td><td>Begins</td><td>Jamah</td><td>Begins</td><td>Jamah</td>";
 				$str .= "</tr>";
-				
 				foreach($rows as $row){
-					$str .= "<tr>";
+					$str .= "<tr ".self::getClass($i).">";
 					
-					$str .= "<td>{$row["fajr_begins"]}</td>";
-					$str .= "<td>{$row["fajr_jamah"]}</td>";
-					$str .= "<td>{$row["sunrise"]}</td>";
-					$str .= "<td>{$row["zuhr_begins"]}</td>";
-					$str .= "<td>{$row["zuhr_jamah"]}</td>";
-					$str .= "<td>{$row["asr_mithl_2"]}</td>";
-					$str .= "<td>{$row["asr_jamah"]}</td>";
-					$str .= "<td>{$row["maghrib_begins"]}</td>";
-					$str .= "<td>{$row["maghrib_jamah"]}</td>";
-					$str .= "<td>{$row["isha_begins"]}</td>";
-					$str .= "<td>{$row["isha_jamah"]}</td>";
-					
-					$str .= "</tr>";	
+					$str .= "<td>$i</td>";
+					$str .= "<td>".self::formatHourAndMinuteOnly($row["fajr_begins"])."</td>";
+					$str .= "<td class='jamah'>".self::formatHourAndMinuteOnly($row["fajr_jamah"])."</td>";
+					$str .= "<td>".self::formatHourAndMinuteOnly($row["sunrise"])."</td>";
+					$str .= "<td>".self::formatHourAndMinuteOnly($row["zuhr_begins"])."</td>";
+					$str .= "<td class='jamah'>".self::formatHourAndMinuteOnly($row["zuhr_jamah"])."</td>";
+					$str .= "<td>".self::formatHourAndMinuteOnly($row["asr_mithl_1"])."</td>";
+					$str .= "<td>".self::formatHourAndMinuteOnly($row["asr_mithl_2"])."</td>";
+					$str .= "<td class='jamah'>".self::formatHourAndMinuteOnly($row["asr_jamah"])."</td>";
+					$str .= "<td>".self::formatHourAndMinuteOnly($row["maghrib_begins"])."</td>";
+					$str .= "<td class='jamah'>".self::formatHourAndMinuteOnly($row["maghrib_jamah"])."</td>";
+					$str .= "<td>".self::formatHourAndMinuteOnly($row["isha_begins"])."</td>";
+					$str .= "<td class='jamah'>".self::formatHourAndMinuteOnly($row["isha_jamah"])."</td>";
+					// strftime("%V,%G,%Y", strtotime("12/28/2002"))
+					$str .= "</tr>";
+                    $i++;
 				}
 			}		
 			return $str;	
 		}
+		/**
+		 * 
+		 * Enter description here ...
+		 * @param $strVal
+		 */
+		private function formatHourAndMinuteOnly($strVal){
+			return substr($strVal, 0, 5);
+		}
+        /*
+        * static function to return a css class to highlight the current date
+        */
+        public static function getClass($day){
+            $today = getdate();
+            if ($day === $today['mday'])
+                return "class = today";
+        }
 	}
 ?>

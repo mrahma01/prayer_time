@@ -12,7 +12,7 @@ $dir = "csv";
 /**
  * Open the csv directory and go through all files
  * import data within every files
- * The nae of the file would be the date   
+ * The name of the file would be the date   
  */
 if (is_dir($dir)) {
     if ($dh = opendir($dir)) {

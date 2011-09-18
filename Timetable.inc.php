@@ -141,12 +141,14 @@
 		 * Enter description here ...
 		 * @param $rows
 		 */
-		public static function getTimetableAsString($rows){
+		public static function getTimetableAsString($rows, $month){
+			$year = date("Y");
 			$str = "No data found for your selected month.";
 			# there is at least one rows
 			if($rows !== false){
+				$str = "<h2>".self::getMonthString($month)." ".$year."</h2>";
                 $i = 1;
-				$str = "<table class='full' ><tr><th style='border:none;'></th><th colspan='3'>Fajr</th><th colspan='2'>Zuhr</th><th colspan='3'>Asr</th><th colspan='2'>Maghrib</th><th colspan='2'>Isha</th></tr><tr>";
+				$str .= "<table class='full' ><tr><th style='border:none;'></th><th colspan='3'>Fajr</th><th colspan='2'>Zuhr</th><th colspan='3'>Asr</th><th colspan='2'>Maghrib</th><th colspan='2'>Isha</th></tr><tr>";
 				$str .= "<td>Day</td><td>Begins</td><td class='jamah'>Jamah</td><td>Sunrise</td><td>Begins</td><td class='jamah'>Jamah</td><td>Mithl1</td><td>Mithl2</td>
 						<td class='jamah'>Jamah</td><td>Begins</td><td class='jamah'>Jamah</td><td>Begins</td><td class='jamah'>Jamah</td>";
 				$str .= "</tr>";
@@ -171,9 +173,19 @@
                     $i++;
 				}
 			}		
+            $str .= "</table>";
 			return $str;	
+
 		}
-		
+		private static function getMonthString($month){
+	    	$month = intval($month);
+			$months = array('1'=>'January', '2'=>'February', '3'=>'March', '4'=>'April', '5'=>'May', '6'=>'June',
+		        '7'=>'July', '8'=>'August', '9'=>'September', '10'=>'October','11'=>'November','12'=>'December');
+			if ($month >= 1 && $month <= 12){
+				return $months[$month]; 
+			}	
+			return "";
+		}
 		/**
 		 * 
 		 * Enter description here ...

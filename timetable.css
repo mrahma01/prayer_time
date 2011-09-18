@@ -1,0 +1,41 @@
+@CHARSET "UTF-8";
+
+table.full{
+        width: 100%;
+        border-collapse: separate;
+        font-size:0.9em;
+    }
+    
+table.timetable{width: 165px;}
+
+table.full tr:nth-child(even) {background: #ebe6da}    
+table.full tr td{
+    text-align: center;
+    padding: 5px;
+    border: 1px solid #ccc;
+}
+ table.timetable tr td{
+    padding: 0px;
+}
+ table.full tr th{
+    text-align: center;
+    padding: 5px;
+    border: 1px solid #ccc;
+    font-weight:bold;
+}
+table.full tr td.jamah{
+    font-weight: bold;
+    background-color: #e1eafe;
+}
+table.full tr:hover {
+    background-color: #e1eafe;
+}
+table.full tr.today{ 
+    padding:2;
+    font-weight: bold;
+    background-color: #e1eafe; 
+    border-collapse:collapse;
+}
+table.full tr.today td{ 
+    border: 1px solid orange;
+}

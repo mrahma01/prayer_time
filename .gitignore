@@ -1,10 +1,2 @@
-.DS_Store
-.buildpath
-.data.sql.swp
-.index.php.swp
-.project
-.schema.sql.swp
-.settings/
-.swo
-.swp
-
+.*
+/csv

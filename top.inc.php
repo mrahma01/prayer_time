@@ -17,9 +17,7 @@
   
 	<!-- content --> 
 	<section id="content"> 
-        <h1><?php echo date('F Y');?></h1>
-    	<h2 class="first">Welcome</h2> 
-		<a href="/eict/">HOME</a> <br />	
+        <a href="/eict/">HOME</a> <br />	
 		<a href="/eict/import.php">IMPORT data</a> <br />
 		<a href="/eict/timetable.php">Timetable</a> <br />
 		<a href="/eict/full_timetable.php">View full timetable</a> <br />

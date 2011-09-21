@@ -28,7 +28,7 @@
   <div id="main">
   	<!-- header -->
     <header>
-    	<h1><a href="index.php">Edgware <strong>Islamic</strong> Cultural <strong>Trust</strong></a></h1>
+    	<h1><a href="/">Edgware <strong>Islamic</strong> Cultural <strong>Trust</strong></a></h1>
       <form id="ClockForm" action="">
         <fieldset>
           <input type="text" id="clock" />
@@ -36,7 +36,7 @@
       </form>
       <nav>
         <ul>
-        	<li class="first"><a href="index.php">Home</a></li>
+        	<li class="first"><a href="/">Home</a></li>
           <li><a href="about_us.html">About us</a></li>
           <li><a href="services.html">services</a></li>
           <li><a href="facilities.html">Facilities</a></li>
@@ -260,7 +260,7 @@ Inshallah, we plan to utilise this as a prayer place, also to  run Quran classes
 						echo $today_calender_str;
 						
                        ?>
-                       <a href="/eict/full_timetable.php">View full timetable</a> <br />
+                       <a href="/full_timetable.php">View full timetable</a> <br />
                        </div>
                        
                        <!-- 

@@ -17,8 +17,8 @@
   
 	<!-- content --> 
 	<section id="content"> 
-        <a href="/eict/">HOME</a> <br />	
-		<a href="/eict/import.php">IMPORT data</a> <br />
-		<a href="/eict/timetable.php">Timetable</a> <br />
-		<a href="/eict/full_timetable.php">View full timetable</a> <br />
+        <a href="/">HOME</a> <br />	
+		<a href="/import.php">IMPORT data</a> <br />
+		<a href="/timetable.php">Timetable</a> <br />
+		<a href="/full_timetable.php">View full timetable</a> <br />
 			

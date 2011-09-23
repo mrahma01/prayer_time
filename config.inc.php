@@ -1,13 +1,13 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors','On');
-//echo 'Current PHP version: ' . phpversion();
+echo 'Current PHP version: ' . phpversion();
 date_default_timezone_set('Europe/London');
 
-define("DB_SERVER", "localhost:/tmp/mysql5.sock");
-define("DB_NAME", "db383351816");
-define("DB_USER", "dbo383351816");
-define("DB_PASSWORD", "4youme6");
+define("DB_SERVER", "127.0.0.1");
+define("DB_NAME", "eict");
+define("DB_USER", "root");
+define("DB_PASSWORD", "pass");
 
 define("SITE_ROOT", $_SERVER["DOCUMENT_ROOT"]);
 

@@ -247,7 +247,11 @@ Inshallah, we plan to utilise this as a prayer place, also to  run Quran classes
                       <div style="display:block;clear:both;float:left;">
                        <?php
                        	
-                       include("config.inc.php");
+                        include("config.inc.php");
+                        $today = date('l');
+                        if ($today == 'Friday')
+                            echo "<p class='jumma'><a href='full_timetable.php'>Jumma is not held in this place</a></p>";
+					    echo date('l, jS F, Y');
 	
 						$rows = Timetable::getCalendarToday();
 	

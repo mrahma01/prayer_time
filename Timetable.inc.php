@@ -198,7 +198,7 @@
 			$str .= "<tr><th style='border:none;'></th><th>Begins</th><th>Jammah</th></tr>";
 			$str .= "<tr><td>Fajr</td><td>".self::formatHourAndMinuteOnly($row["fajr_begins"])."</td><td>".self::formatHourAndMinuteOnly($row["fajr_jamah"])."</td></tr>";
 			$str .= "<tr><td>Sunrise</td><td colspan='2'>".self::formatHourAndMinuteOnly($row["sunrise"])."</td></tr>";
-			$str .= "<tr><td>Zuhar</td><td>".self::formatHourAndMinuteOnly($row["zuhr_begins"])."</td><td>".self::formatHourAndMinuteOnly($row["zuhr_jamah"], 43200)."</td></tr>";
+			$str .= "<tr><td>Zuhr</td><td>".self::formatHourAndMinuteOnly($row["zuhr_begins"])."</td><td>".self::formatHourAndMinuteOnly($row["zuhr_jamah"], 43200)."</td></tr>";
 			$str .= "<tr><td>Asr</td><td>".self::formatHourAndMinuteOnly($row["asr_mithl_2"], 43200)."</td><td>".self::formatHourAndMinuteOnly($row["asr_jamah"], 43200)."</td></tr>";
 			$str .= "<tr><td>Magrib</td><td>".self::formatHourAndMinuteOnly($row["maghrib_begins"], 43200)."</td><td>".self::formatHourAndMinuteOnly($row["maghrib_jamah"], 43200)."</td></tr>";
 			$str .= "<tr><td>Isha</td><td>".self::formatHourAndMinuteOnly($row["isha_begins"], 43200)."</td><td>".self::formatHourAndMinuteOnly($row["isha_jamah"], 43200)."</td></tr></table>";

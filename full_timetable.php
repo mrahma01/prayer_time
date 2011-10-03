@@ -104,7 +104,8 @@
 				
 			</form>
 		<?php 	
-	        echo "From August 2011 Edgware Islamic Cultural Trust prayer times based on the <a href='http://www.eastlondonmosque.org.uk/unified'>Unified Prayer Timetable For London</a>";		
+            echo "From August 2011 Edgware Islamic Cultural Trust prayer times based on the <a href='http://www.eastlondonmosque.org.uk/unified'>Unified Prayer Timetable For London</a>";		
+            echo "<p class='jumma'>Jumma is not held in this place, please follow the Zuhr time of the previous day.</p>";
 			echo "<div id='timetable_content'>".$timetable_content."</div>";
 			
 			//include("bot.inc.php");

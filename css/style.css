@@ -440,4 +440,14 @@ footer .container{
 
 
 
-/*==========================================*/
+/*=============== customm css ===============*/
+.jumma{
+    color: #FFF;
+    padding-left:3px;
+    border:1px solid black;
+    background:red;
+    font-size:12px;
+}
+.jumma a{
+    color:#FFF;
+}

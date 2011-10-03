@@ -1,7 +1,6 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors','On');
-echo 'Current PHP version: ' . phpversion();
 date_default_timezone_set('Europe/London');
 
 define("DB_SERVER", "127.0.0.1");

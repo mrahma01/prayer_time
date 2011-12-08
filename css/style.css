@@ -451,3 +451,23 @@ footer .container{
 .jumma a{
     color:#FFF;
 }
+
+table{
+    border-collapse: separate;
+    font-size:0.9em;
+}
+tr:nth-child(even) {background: #ebe6da}    
+tr td{
+    text-align: left;
+    padding: 5px;
+    border: 1px solid #ccc;
+}
+tr th{
+    text-align: center;
+    padding: 5px;
+    border: 1px solid #ccc;
+    font-weight:bold;
+}
+tr:hover {
+    background-color: #e1eafe;
+}

@@ -4,19 +4,34 @@
     <title>Edgware Islamic Cultural Trust (EICT)</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="http://www.edgwareict.org.uk/css/reset.css" type="text/css">
-    <link rel="stylesheet" href="http://www.edgwareict.org.uk/css/style.css" type="text/css">
-    <link rel="stylesheet" href="http://www.edgwareict.org.uk/timetable.css" type="text/css"> 
-  
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="timetable.css" type="text/css"> 
+    <script src="http://code.jquery.com/jquery-latest.js"></script>  
+    <script type="text/javascript" src="js/jquery.validate.js"></script>
+
+    <style type="text/css">
+        * { font-family: Verdana; font-size: 96%; }
+        label { width: 10em; float: left; }
+        label.error { float: none; color: red; padding-left: .5em; vertical-align: top; }
+        p { clear: both; }
+        .submit { margin-left: 12em; }
+        em { font-weight: bold; padding-right: 1em; vertical-align: top; }
+    </style>
+  <script>
+      $(document).ready(function(){
+        $("#contactform").validate();
+      });     
+  </script>   
 </head>
 <body>
-    <form name="contactform" id="contactform" method="post" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>">
+    <form name="contactform" id="contactform" method="post" action="">
         <table width="800px">
             <tr>
              <td valign="top">
               <label for="first_name">First Name *</label>
              </td>
              <td valign="top">
-              <input  type="text" name="first_name" id="first_name"  maxlength="50" size="30">
+              <input  type="text" name="first_name" id="first_name"  maxlength="50" size="30" class="required">
              </td>
             </tr>
          
@@ -25,7 +40,7 @@
               <label for="last_name">Last Name *</label>
              </td>
              <td valign="top">
-              <input  type="text" name="last_name" id="last_name" maxlength="50" size="30">
+              <input  type="text" name="last_name" id="last_name" maxlength="50" size="30" class="required">
              </td>
             </tr>
             
@@ -34,7 +49,7 @@
               <label for="email">Email Address *</label>
              </td>
              <td valign="top">
-              <input  type="text" name="email" id="email" maxlength="80" size="30">
+              <input  type="text" name="email" id="email" maxlength="80" size="30" class="required">
              </td>
             </tr>
             
@@ -43,7 +58,7 @@
               <label for="telephone">Telephone Number *</label>
              </td>
              <td valign="top">
-              <input  type="text" name="telephone" id="telephone" maxlength="30" size="30">
+              <input  type="text" name="telephone" id="telephone" maxlength="30" size="30" class="required">
              </td>
             </tr>
             
@@ -52,7 +67,7 @@
               <label for="address">Address</label>
              </td>
              <td valign="top">
-              <textarea  name="address" id="address" maxlength="1000" cols="30" rows="6"></textarea>
+              <textarea  name="address" id="address" maxlength="1000" cols="70" rows="6"></textarea>
              </td>
             </tr>
             
@@ -66,17 +81,17 @@
                         <tr>
                             <td>First Child</td>
                             <td><input type="text" name="first_child_age" id="first_child_age"> </td>
-                            <td><input type="text" id="first_child_gender"> </td>
+                            <td><input type="text" name="first_child_gender" id="first_child_gender"> </td>
                         </tr>
                         <tr>
-                            <td>First Child</td>
-                            <td><input type="text" id="second_child_age"> </td>
-                            <td><input type="text" id="first_child_gender"> </td>
+                            <td>Second Child</td>
+                            <td><input type="text" name="second_child_age" id="second_child_age"> </td>
+                            <td><input type="text" name="second_child_gender" id="second_child_gender"> </td>
                         </tr>
                         <tr>
-                            <td>First Child</td>
-                            <td><input type="text" id="third_child_age"> </td>
-                            <td><input type="text" id="first_child_gender"> </td>
+                            <td>Third Child</td>
+                            <td><input type="text" name="third_child_age" id="third_child_age"> </td>
+                            <td><input type="text" name="third_child_age" id="third_child_gender"> </td>
                         </tr>
                     </table>
                 </td>
@@ -87,7 +102,7 @@
               <label for="perticipation">Your Perticipation *</label>
              </td>
              <td valign="top">
-              <input type="text" name="perticipation" id="perticipation"> mins
+              <input type="text" name="perticipation" id="perticipation" class="required"> mins
              </td>
             </tr>
 
@@ -96,7 +111,7 @@
               <label for="payment">Payment *</label>
              </td>
              <td valign="top">
-              <input type="text" id="payment"> <i>[All fees will go towards the running costs of the Musalla]</i>
+              <input type="text" name="payment" id="payment" class="required"> <i></br>[All fees will go towards the running costs of the Musalla]</i>
              </td>
             </tr>
 
@@ -105,7 +120,7 @@
               <label for="lesson">Lesson Contents *</label>
              </td>
              <td valign="top">
-              <textarea  name="lesson" id="lesson" maxlength="1000" cols="30" rows="6"></textarea>
+              <textarea  name="lesson" id="lesson" maxlength="1000" cols="70" rows="6" class="required"></textarea>
              </td>
             </tr>
                                     
@@ -114,13 +129,13 @@
               <label for="comments">Comments and Suggestions *</label>
              </td>
              <td valign="top">
-              <textarea  name="comments" id="comments" maxlength="1000" cols="30" rows="6"></textarea>
+              <textarea  name="comments" id="comments" maxlength="1000" cols="70" rows="6"></textarea>
              </td>
             </tr>
                     
             <tr>
-             <td colspan="2" style="text-align:center">
-              <input type="submit" value="Submit" id="submit" name="submit">  
+             <td colspan="2" style="text-align:right">
+              <input type="submit" value="Submit" id="submit" name="submit" style="height: 100px; width: 150px">  
              </td>
             </tr>
         </table>
@@ -133,7 +148,7 @@ if(isset($_POST['email'])) {
      
     // EDIT THE 2 LINES BELOW AS REQUIRED
     $email_to = "mmrs151@gmail.com";
-    $email_subject = "Your email subject line";
+    $email_subject = "EICT Islamic Studies Survey";
      
     $error = ""; 
     function died($error) {
@@ -159,9 +174,12 @@ if(isset($_POST['email'])) {
     $email_from = $_POST['email']; // required
     $telephone = $_POST['telephone']; // required
     $address = $_POST['address']; // not required
-    $first_child = $_POST['first_child'];
-    $second_child = $_POST['second_child'];
-    $third_child = $_POST['third_child'];
+    $first_child_age = $_POST['first_child_age'];
+    $first_child_gender = $_POST['first_child_gender'];
+    $second_child_age = $_POST['second_child_age'];
+    $second_child_gender = $_POST['second_child_gender'];
+    $third_child_age = $_POST['third_child_age'];
+    $third_child_gender = $_POST['third_child_gender'];    
     $perticipation = $_POST['perticipation'];
     $payment = $_POST['payment'];
     $lesson = $_POST['lesson'];
@@ -197,11 +215,14 @@ if(isset($_POST['email'])) {
     $email_message .= "Email: ".clean_string($email_from)."\n";
     $email_message .= "Telephone: ".clean_string($telephone)."\n";
     $email_message .= "Address: ".clean_string($address)."\n";
-    $email_message .= "First Child: ".clean_string($first_child)."\n";
-    $email_message .= "Second Child: ".clean_string($second_child)."\n";
-    $email_message .= "Third Child: ".clean_string($third_child)."\n";
+    $email_message .= "First Child Age: ".clean_string($first_child_age)."\n";
+    $email_message .= "First Child Gender: ".clean_string($first_child_gender)."\n";
+    $email_message .= "Second Child Age: ".clean_string($second_child_age)."\n";
+    $email_message .= "Second Child Gender: ".clean_string($second_child_gender)."\n";
+    $email_message .= "Third Child Age: ".clean_string($third_child_age)."\n";
+    $email_message .= "Third Child Gender: ".clean_string($third_child_gender)."\n";    
     $email_message .= "Perticipation: ".clean_string($perticipation)."\n";
-    $email_message .= "Payment: ".clean_string($payment)."\n";
+    $email_message .= "Payment: £".clean_string($payment)."\n";
     $email_message .= "Lesson: ".clean_string($lesson)."\n";
     $email_message .= "Comments: ".clean_string($comments)."\n";
      

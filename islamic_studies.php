@@ -49,16 +49,16 @@
               <label for="email">Email Address *</label>
              </td>
              <td valign="top">
-              <input  type="text" name="email" id="email" maxlength="80" size="30" class="required">
+              <input  type="text" name="email" id="email" maxlength="80" size="30" class="required email">
              </td>
             </tr>
             
             <tr>
              <td valign="top">
-              <label for="telephone">Telephone Number *</label>
+              <label for="telephone">Telephone *</label>
              </td>
              <td valign="top">
-              <input  type="text" name="telephone" id="telephone" maxlength="30" size="30" class="required">
+              <input  type="text" name="telephone" id="telephone" maxlength="30" size="30" class="required number">
              </td>
             </tr>
             
@@ -80,17 +80,17 @@
                         </tr>
                         <tr>
                             <td>First Child</td>
-                            <td><input type="text" name="first_child_age" id="first_child_age"> </td>
+                            <td><input type="text" name="first_child_age" id="first_child_age" class="number"> </td>
                             <td><input type="text" name="first_child_gender" id="first_child_gender"> </td>
                         </tr>
                         <tr>
                             <td>Second Child</td>
-                            <td><input type="text" name="second_child_age" id="second_child_age"> </td>
+                            <td><input type="text" name="second_child_age" id="second_child_age" class="number"> </td>
                             <td><input type="text" name="second_child_gender" id="second_child_gender"> </td>
                         </tr>
                         <tr>
                             <td>Third Child</td>
-                            <td><input type="text" name="third_child_age" id="third_child_age"> </td>
+                            <td><input type="text" name="third_child_age" id="third_child_age" class="number"> </td>
                             <td><input type="text" name="third_child_age" id="third_child_gender"> </td>
                         </tr>
                     </table>
@@ -102,7 +102,7 @@
               <label for="perticipation">Your Perticipation *</label>
              </td>
              <td valign="top">
-              <input type="text" name="perticipation" id="perticipation" class="required"> mins
+              <input type="text" name="perticipation" id="perticipation" class="required number"> mins
              </td>
             </tr>
 
@@ -111,7 +111,7 @@
               <label for="payment">Payment *</label>
              </td>
              <td valign="top">
-              <input type="text" name="payment" id="payment" class="required"> <i></br>[All fees will go towards the running costs of the Musalla]</i>
+              <input type="text" name="payment" id="payment" class="required number"> <i></br>[All fees will go towards the running costs of the Musalla]</i>
              </td>
             </tr>
 
@@ -164,8 +164,7 @@ if(isset($_POST['email'])) {
     if(!isset($_POST['first_name']) ||
         !isset($_POST['last_name']) ||
         !isset($_POST['email']) ||
-        !isset($_POST['telephone']) ||
-        !isset($_POST['comments'])) {
+        !isset($_POST['telephone'])) {
         died('We are sorry, but there appears to be a problem with the form you submitted.');       
     }
      

@@ -112,17 +112,26 @@
                         <tr>
                             <td>First Child</td>
                             <td><input type="text" name="first_child_age" id="first_child_age" class="number"> </td>
-                            <td><input type="text" name="first_child_gender" id="first_child_gender"> </td>
+                            <td>
+                                <input type="radio" name="first_child_gender" id="first_child_gender" value="Boy">Boy 
+                                <input type="radio" name="first_child_gender" id="first_child_gender" value="Girl">Girl
+                            </td>
                         </tr>
                         <tr>
                             <td>Second Child</td>
                             <td><input type="text" name="second_child_age" id="second_child_age" class="number"> </td>
-                            <td><input type="text" name="second_child_gender" id="second_child_gender"> </td>
+                            <td>
+                                <input type="radio" name="second_child_gender" id="second_child_gender" value="Boy">Boy
+                                <input type="radio" name="second_child_gender" id="second_child_gender" value="Girl">Girl 
+                            </td>
                         </tr>
                         <tr>
                             <td>Third Child</td>
                             <td><input type="text" name="third_child_age" id="third_child_age" class="number"> </td>
-                            <td><input type="text" name="third_child_age" id="third_child_gender"> </td>
+                            <td>
+                                <input type="radio" name="third_child_gender" id="third_child_gender" value="Boy">Boy
+                                <input type="radio" name="third_child_gender" id="third_child_gender" value="Girl">Girl
+                            </td>
                         </tr>
                     </table>
                 </td>
@@ -197,16 +206,16 @@
 if(isset($_POST['email'])) {
      
     // EDIT THE 2 LINES BELOW AS REQUIRED
-    $email_to = "info@edgwareict.org.uk";
+    $email_to = array("Info@edgwareICT.org.uk","mmrs151@gmail.com");
     $email_subject = "EICT Islamic Studies Survey";
      
     $error = ""; 
     function died($error) {
         // your error code can go here
-        $error .= "We are very sorry, but there were error(s) found with the form you submitted. ";
-        $error .= "These errors appear below.<br /><br />";
-        $error .= $error."<br /><br />";
-        $error .= "Please go back and fix these errors.<br /><br />";
+        echo "We are very sorry, but there were error(s) found with the form you submitted. ";
+        echo "These errors appear below.<br /><br />";
+        echo $error."<br /><br />";
+        echo "Please go back and fix these errors.<br /><br />";
         die($error);
     }
      
@@ -246,9 +255,6 @@ if(isset($_POST['email'])) {
   if(!preg_match($string_exp,$last_name)) {
     $error_message .= 'The Last Name you entered does not appear to be valid.<br />';
   }
-  if(strlen($comments) < 2) {
-    $error_message .= 'The Comments you entered do not appear to be valid.<br />';
-  }
   if(strlen($error_message) > 0) {
     died($error_message);
   }
@@ -280,8 +286,10 @@ if(isset($_POST['email'])) {
 $headers = 'From: '.$email_from."\r\n".
 'Reply-To: '.$email_from."\r\n" .
 'X-Mailer: PHP/' . phpversion();
-@mail($email_to, $email_subject, $email_message, $headers); 
-$test = "foo";
+foreach ($email_to as $email) {
+	@mail($email, $email_subject, $email_message, $headers); 
+}
+ 
 ?>
  
 <!-- include your own success html here -->

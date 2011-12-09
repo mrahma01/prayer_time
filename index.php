@@ -87,6 +87,8 @@
                       	<li><a href="events.html">Events</a></li>
                         <li><a href="articles.html">Articles</a></li>
                         <li><a href="services.html">Jummah</a><br>                        
+                        <li><a href="islamic_studies.php">Children Quranic Classes</a><br>                        
+                        <li><a href="tajweed.html">Tajweed Course</a><br>                        
                       </ul>
                     </div>
                   </div>

@@ -23,9 +23,38 @@
       });     
   </script>   
 </head>
-<body>
-    <form name="contactform" id="contactform" method="post" action="">
-        <table width="800px">
+<body id="page3" onLoad="myclock();">
+  <div id="main">
+  	<!-- header -->
+    <header>
+    	<h1><a href="/">Edgware <strong>Islamic</strong> Cultural <strong>Trust</strong></a></h1>
+      <form id="ClockForm" action="">
+        <fieldset>
+          <input type="text" id="clock" />
+        </fieldset>
+      </form>
+      <nav>
+        <ul>
+        	<li class="first"><a href="/">Home</a></li>
+          <li><a href="about_us.html">About us</a></li>
+          <li><a href="services.html">services</a></li>
+          <li><a href="facilities.html">Facilities</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="donate_online.html">Donate Online</a></li>
+          <li class="last"><a href="contacts.html">contacts</a></li>
+        </ul>
+      </nav>
+    </header>
+	<div>
+	<p>&nbsp;</p>
+	REGISTRATION OF INTEREST FOR ISLAMIC LESSONS AT EDGWARE ISLAMIC CULTURAL TRUST (EICT)  <p>&nbsp;</p>
+	EICT is planning to start Islamic lessons in the near future. Please help us plan for the future by filling in this form.</br></br>
+	</div>
+    <form name="contactform" id="contactform" method="post" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>">
+		<table width="800px">
+			<tr>
+			 <th colspan="3">Section A: Your Details</th>
+			</tr>
             <tr>
              <td valign="top">
               <label for="first_name">First Name *</label>
@@ -70,7 +99,9 @@
               <textarea  name="address" id="address" maxlength="1000" cols="70" rows="6"></textarea>
              </td>
             </tr>
-            
+			<tr>
+			 <th colspan="3">Section B: Your Childrens Details</th>
+			</tr>            
             <tr>
                 <td valign="top">Childrens</td>
                 <td valign="top">
@@ -96,7 +127,14 @@
                     </table>
                 </td>
             </tr>
-
+			<tr>
+			 <th colspan="3">Section C: Your Perticipation</th>
+			</tr> 
+			<tr>
+			 <td colspan="3">
+				Would you be willing to stay for at least half an hour per lesson (to help supervise and to observe lesson content so as to reinforce what is taught to your child at home)?  Please mention how long are you planning to stay.
+			</td>
+			</tr> 
             <tr>
              <td valign="top">
               <label for="perticipation">Your Perticipation *</label>
@@ -105,7 +143,14 @@
               <input type="text" name="perticipation" id="perticipation" class="required number"> mins
              </td>
             </tr>
-
+			<tr>
+			 <th colspan="3">Section D: Payment</th>
+			</tr> 
+			<tr>
+			 <td colspan="3">
+				How much would you be happy to pay (in advance) per month per child? Please write in GBP.
+			</td>
+			</tr> 
             <tr>
              <td valign="top">
               <label for="payment">Payment *</label>
@@ -114,7 +159,14 @@
               <input type="text" name="payment" id="payment" class="required number"> <i></br>[All fees will go towards the running costs of the Musalla]</i>
              </td>
             </tr>
-
+			<tr>
+			 <th colspan="3">Section E: Lesson Content</th>
+			</tr> 
+			<tr>
+			 <td colspan="3">
+				What is your preference for the content of the lessons? It might be quranic recitation or islamic studies or both. We highly value your thoughts towards our children's future.
+			</td>
+			</tr> 
             <tr>
              <td valign="top">
               <label for="lesson">Lesson Contents *</label>
@@ -126,7 +178,7 @@
                                     
             <tr>
              <td valign="top">
-              <label for="comments">Comments and Suggestions *</label>
+              <label for="comments">Comments and Suggestions</label>
              </td>
              <td valign="top">
               <textarea  name="comments" id="comments" maxlength="1000" cols="70" rows="6"></textarea>
@@ -139,15 +191,13 @@
              </td>
             </tr>
         </table>
-    </form>
-</body>
-</html>
+	</form>
 
 <?php
 if(isset($_POST['email'])) {
      
     // EDIT THE 2 LINES BELOW AS REQUIRED
-    $email_to = "mmrs151@gmail.com";
+    $email_to = "info@edgwareict.org.uk";
     $email_subject = "EICT Islamic Studies Survey";
      
     $error = ""; 
@@ -230,13 +280,33 @@ if(isset($_POST['email'])) {
 $headers = 'From: '.$email_from."\r\n".
 'Reply-To: '.$email_from."\r\n" .
 'X-Mailer: PHP/' . phpversion();
-@mail($email_to, $email_subject, $email_message, $headers);  
+@mail($email_to, $email_subject, $email_message, $headers); 
+$test = "foo";
 ?>
  
 <!-- include your own success html here -->
- 
+<center><h3> 
 Thank you for contacting us. We will be in touch with you very soon.
- 
+</center></h3> 
+<p>&nbsp;</p>
 <?php
 }
 ?>
+ </div>
+  <!-- footer -->
+  <footer>
+    <div class="container">
+      <div class="wrapper">
+      	<div class="fleft">Edgware Islamic Cultural Trust (EICT) 2010, UK registered charity registration number 1137809 &copy; 2010<br />
+      	  <!-- {%FOOTER_LINK} -->
+        </div>
+  <div class="fright">
+        	<a href="about_us.html#executive">Executive Committee</a>        </div>
+      </div>
+    </div>
+	</footer>
+  <!-- coded by ramzes -->
+  <script type="text/javascript"> Cufon.now(); </script> 
+</body>
+</html>
+

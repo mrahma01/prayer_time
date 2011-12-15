@@ -276,7 +276,7 @@ if(isset($_POST['email'])) {
     $email_message .= "Second Child Gender: ".clean_string($second_child_gender)."\n";
     $email_message .= "Third Child Age: ".clean_string($third_child_age)."\n";
     $email_message .= "Third Child Gender: ".clean_string($third_child_gender)."\n";    
-    $email_message .= "Perticipation: ".clean_string($perticipation)."\n";
+    $email_message .= "Perticipation: ".clean_string($perticipation)." mins\n";
     $email_message .= "Payment: £".clean_string($payment)."\n";
     $email_message .= "Lesson: ".clean_string($lesson)."\n";
     $email_message .= "Comments: ".clean_string($comments)."\n";

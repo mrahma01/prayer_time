@@ -1,4 +1,3 @@
-DROP TABLE timetable CASCADE;
 CREATE TABLE IF NOT EXISTS timetable(
     timetable_id INT(3) PRIMARY KEY AUTO_INCREMENT,
     timetable_modified TIMESTAMP DEFAULT NOW(),

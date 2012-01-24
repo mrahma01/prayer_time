@@ -137,7 +137,7 @@
                 </td>
             </tr>
 			<tr>
-			 <th colspan="3">Section C: Your Perticipation</th>
+			 <th colspan="3">Section C: Your Participation</th>
 			</tr> 
 			<tr>
 			 <td colspan="3">
@@ -146,10 +146,10 @@
 			</tr> 
             <tr>
              <td valign="top">
-              <label for="perticipation">Your Perticipation *</label>
+              <label for="participation">Your Participation *</label>
              </td>
              <td valign="top">
-              <input type="text" name="perticipation" id="perticipation" class="required number"> mins
+              <input type="text" name="participation" id="participation" class="required number"> mins
              </td>
             </tr>
 			<tr>
@@ -193,7 +193,35 @@
               <textarea  name="comments" id="comments" maxlength="1000" cols="70" rows="6"></textarea>
              </td>
             </tr>
-                    
+
+            <tr>
+             <th colspan="3">Section F: Other</th>
+            </tr> 
+            <tr>
+             <td colspan="3">
+                <li>
+                    Would you be interested in 11+ (preparation for secondary school) fee paying classes for Maths and English
+                    <input type="radio" name="maths" id="maths" value="Yes" class="required">Yes
+                    <input type="radio" name="maths" id="maths" value="No" class="required">No
+                </li>
+                <li>
+                    Would you be interested in Introduction to Adult Quran/ Tajweed Class
+                    <input type="radio" name="tajweed" id="tajweed" value="Yes" class="required">Yes
+                    <input type="radio" name="tajweed" id="tajweed" value="No" class="required">No
+                </li>
+                <li>
+                    Would you be interested in weekend football (Adult and Children)
+                    <input type="radio" name="football" id="football" value="Yes" class="required">Yes
+                    <input type="radio" name="football" id="football" value="No" class="required">No
+                </li>
+                <li>
+                    Would you be interested in fitness/self-defence training - Brazilian Jiu-Jitsu (Adult and Children)
+                    <input type="radio" name="jitsu" id="jitsu" value="Yes" class="required">Yes
+                    <input type="radio" name="jitsu" id="jitsu" value="No" class="required">No
+                </li>                                                
+             </td>
+            </tr> 
+                                            
             <tr>
              <td colspan="2" style="text-align:right">
               <input type="submit" value="Submit" id="submit" name="submit" style="height: 100px; width: 150px">  
@@ -238,10 +266,14 @@ if(isset($_POST['email'])) {
     $second_child_gender = $_POST['second_child_gender'];
     $third_child_age = $_POST['third_child_age'];
     $third_child_gender = $_POST['third_child_gender'];    
-    $perticipation = $_POST['perticipation'];
+    $participation = $_POST['participation'];
     $payment = $_POST['payment'];
     $lesson = $_POST['lesson'];
     $comments = $_POST['comments'];
+    $maths = $_POST['maths'];
+    $tajweed = $_POST['tajweed'];
+    $football = $_POST['football'];
+    $jitsu = $_POST['jitsu'];
          
     $error_message = "";
     $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
@@ -276,10 +308,14 @@ if(isset($_POST['email'])) {
     $email_message .= "Second Child Gender: ".clean_string($second_child_gender)."\n";
     $email_message .= "Third Child Age: ".clean_string($third_child_age)."\n";
     $email_message .= "Third Child Gender: ".clean_string($third_child_gender)."\n";    
-    $email_message .= "Perticipation: ".clean_string($perticipation)." mins\n";
+    $email_message .= "Participation: ".clean_string($participation)." mins\n";
     $email_message .= "Payment: £".clean_string($payment)."\n";
     $email_message .= "Lesson: ".clean_string($lesson)."\n";
     $email_message .= "Comments: ".clean_string($comments)."\n";
+    $email_message .= "Maths and English: ".clean_string($maths)."\n";
+    $email_message .= "Quran or Tajweed: ".clean_string($tajweed)."\n";
+    $email_message .= "Football: ".clean_string($football)."\n";
+    $email_message .= "Brazilian Jiu-Jitsu: ".clean_string($jitsu)."\n";
      
      
 // create email headers

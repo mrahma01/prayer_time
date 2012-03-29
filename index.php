@@ -42,7 +42,7 @@
           <li><a href="facilities.html">Facilities</a></li>
           <li><a href="events.html">Events</a></li>
           <li><a href="donate_online.html">Donate Online</a></li>
-          <li class="last"><a href="contacts.html">contacts</a></li>
+          <li class="last"><a href="education.html">Education</a></li>
         </ul>
       </nav>
     </header>
@@ -68,7 +68,7 @@
                 <div class="right-bot-corner">
                   <div class="left-bot-corner">
                     <div class="inner">       
-<a href="http://www.justgiving.com/edgwareislamictrust/donate" target="_blank"><img src="http://www.justgiving.com/charityaccount/content/marketing/buttons/donateonline4.gif" alt="Donation Online button" border="0" align="middle"/></a>
+<a href="http://www.justgiving.com/edgwareislamictrust/donate" target="_blank"><img src="images/donate.gif" width="151px" alt="Donation Online button" border="0" align="middle"/></a>
                     </div>
                   </div>
                 </div>
@@ -328,7 +328,8 @@ Inshallah, we plan to utilise this as a prayer place, also to  run Quran classes
        	  <!-- {%FOOTER_LINK} -->
         </div>
         <div class="fright">
-        	<a href="about_us.html#executive">Executive Committee</a>        </div>
+            <a href="about_us.html#executive">Executive Committee</a> | 
+            <a href="about_us.html#contactus">Contact Us</a>      </div>
       </div>
     </div>
 	</footer>

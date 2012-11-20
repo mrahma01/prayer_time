@@ -47,8 +47,8 @@
     </header>
 	<div>
 	<p>&nbsp;</p>
-	<h2>Saturday Quran Lesson Registration</h2>  <p>&nbsp;</p>
-	EICT is running Quran lessons every Saturday, 9.30am - 11.00am. Please help us plan for the future by filling in this form.</br></br>
+	<h2>After School Quran and Arabic Lesson Registraion</h2>  <p>&nbsp;</p>
+	EICT is planning to start Islamic lessons in the near future. Please help us plan for the future by filling in this form.</br></br>
 	</div>
     <form name="contactform" id="contactform" method="post" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>">
 		<table width="800px">
@@ -152,38 +152,6 @@
               <input type="text" name="participation" id="participation" class="required number"> mins
              </td>
             </tr>
-			<tr>
-			 <th colspan="3">Section D: Payment</th>
-			</tr> 
-			<tr>
-			 <td colspan="3">
-				How much would you be happy to pay (in advance) per month per child? Please write in GBP.
-			</td>
-			</tr> 
-            <tr>
-             <td valign="top">
-              <label for="payment">Payment *</label>
-             </td>
-             <td valign="top">
-              <input type="text" name="payment" id="payment" class="required number"> <i></br>[All fees will go towards the running costs of the Musalla]</i>
-             </td>
-            </tr>
-			<tr>
-			 <th colspan="3">Section E: Lesson Content</th>
-			</tr> 
-			<tr>
-			 <td colspan="3">
-				What is your preference for the content of the lessons? It might be quranic recitation or islamic studies or both. We highly value your thoughts towards our children's future.
-			</td>
-			</tr> 
-            <tr>
-             <td valign="top">
-              <label for="lesson">Lesson Contents *</label>
-             </td>
-             <td valign="top">
-              <textarea  name="lesson" id="lesson" maxlength="1000" cols="70" rows="6" class="required"></textarea>
-             </td>
-            </tr>
                                     
             <tr>
              <td valign="top">
@@ -194,34 +162,6 @@
              </td>
             </tr>
 
-            <tr>
-             <th colspan="3">Section F: Other</th>
-            </tr> 
-            <tr>
-             <td colspan="3">
-                <li>
-                    Would you be interested in 11+ (preparation for secondary school) fee paying classes for Maths and English
-                    <input type="radio" name="maths" id="maths" value="Yes" class="required">Yes
-                    <input type="radio" name="maths" id="maths" value="No" class="required">No
-                </li>
-                <li>
-                    Would you be interested in Introduction to Adult Quran/ Tajweed Class
-                    <input type="radio" name="tajweed" id="tajweed" value="Yes" class="required">Yes
-                    <input type="radio" name="tajweed" id="tajweed" value="No" class="required">No
-                </li>
-                <li>
-                    Would you be interested in weekend football (Adult and Children)
-                    <input type="radio" name="football" id="football" value="Yes" class="required">Yes
-                    <input type="radio" name="football" id="football" value="No" class="required">No
-                </li>
-                <li>
-                    Would you be interested in fitness/self-defence training - Brazilian Jiu-Jitsu (Adult and Children)
-                    <input type="radio" name="jitsu" id="jitsu" value="Yes" class="required">Yes
-                    <input type="radio" name="jitsu" id="jitsu" value="No" class="required">No
-                </li>                                                
-             </td>
-            </tr> 
-                                            
             <tr>
              <td colspan="2" style="text-align:right">
               <input type="submit" value="Submit" id="submit" name="submit" style="height: 100px; width: 150px">  
@@ -234,8 +174,8 @@
 if(isset($_POST['email'])) {
      
     // EDIT THE 2 LINES BELOW AS REQUIRED
-    $email_to = array("Info@edgwareICT.org.uk","mmrs151@gmail.com");
-    $email_subject = "EICT Islamic Studies Survey";
+    $email_to = array("Info@edgwareICT.org.uk","mmrs151@gmail.com","ferhan.mehdi@gmail.com");
+    $email_subject = "EICT After School Lesson Registration";
      
     $error = ""; 
     function died($error) {
@@ -267,13 +207,7 @@ if(isset($_POST['email'])) {
     $third_child_age = $_POST['third_child_age'];
     $third_child_gender = $_POST['third_child_gender'];    
     $participation = $_POST['participation'];
-    $payment = $_POST['payment'];
-    $lesson = $_POST['lesson'];
     $comments = $_POST['comments'];
-    $maths = $_POST['maths'];
-    $tajweed = $_POST['tajweed'];
-    $football = $_POST['football'];
-    $jitsu = $_POST['jitsu'];
          
     $error_message = "";
     $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
@@ -309,13 +243,7 @@ if(isset($_POST['email'])) {
     $email_message .= "Third Child Age: ".clean_string($third_child_age)."\n";
     $email_message .= "Third Child Gender: ".clean_string($third_child_gender)."\n";    
     $email_message .= "Participation: ".clean_string($participation)." mins\n";
-    $email_message .= "Payment: £".clean_string($payment)."\n";
-    $email_message .= "Lesson: ".clean_string($lesson)."\n";
     $email_message .= "Comments: ".clean_string($comments)."\n";
-    $email_message .= "Maths and English: ".clean_string($maths)."\n";
-    $email_message .= "Quran or Tajweed: ".clean_string($tajweed)."\n";
-    $email_message .= "Football: ".clean_string($football)."\n";
-    $email_message .= "Brazilian Jiu-Jitsu: ".clean_string($jitsu)."\n";
      
      
 // create email headers

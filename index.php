@@ -50,6 +50,7 @@
     <div class="slider">
     	<div id="faded">
         <div class="rap">
+          <img src="images/slide5.jpg" alt="" width="952" height="321">
           <img src="images/slide1.jpg" alt="" width="952" height="321">
           <img src="images/slide2.jpg" alt="" width="952" height="321">
           <img src="images/slide3.jpg" alt="" width="952" height="321">
